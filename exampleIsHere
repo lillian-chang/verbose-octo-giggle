@@ -1,0 +1,46 @@
+public class readInBytes {
+	    /**
+	     * subString
+	     * @param s 字串
+	     * @param fromByte Starting byte
+	     * @param toByte Ending byte
+	     * @return subString
+	     */
+		
+	    public String subString(String s, int fromByte, int toByte){
+	        //Extract every bytes from String s by using member function pointer: charAt(i)	        
+	        List<Character> charArr = new ArrayList<Character>();
+	        List<Integer> byteArr = new ArrayList<Integer>();
+	        int temp = 0;
+	        for (int i = 0; i < s.length(); i ++) {
+	            charArr.add( s.charAt(i) );
+	            int flag = 0;
+	            if ( (int)s.charAt(i) > 127 ) {
+	                flag = 2;
+	            }else {
+	                flag = 1;
+	            }
+	            temp += flag;
+	            byteArr.add( temp );
+	        }
+	            		
+	        String subString = "";
+
+	        int startIndex = byteArr.contains(fromByte) ? byteArr.indexOf(fromByte) : byteArr.indexOf(fromByte) + 1;
+	        int finalIndex = byteArr.contains(toByte) ? byteArr.indexOf(toByte) : byteArr.indexOf(toByte) - 1;
+	        for (int i=startIndex; i<= finalIndex; i++) {
+	        	subString += charArr.get(i);
+	        }
+	        return subString;
+	    }	    
+	}
+  
+  public String read() {
+        //Initialisation
+				readInBytes e = new readInBytes();	
+        
+        String item = "讀取位元範例;read bytes example;";
+        
+        //Give range to read the bytes
+        String getStr = e.subString(item, 2, 8);      
+  }
