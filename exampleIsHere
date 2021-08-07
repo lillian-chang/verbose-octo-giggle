@@ -1,7 +1,7 @@
 public class readInBytes {
 	    /**
 	     * subString
-	     * @param s 字串
+	     * @param s 
 	     * @param fromByte Starting byte
 	     * @param toByte Ending byte
 	     * @return subString
